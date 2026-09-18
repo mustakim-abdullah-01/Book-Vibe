@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router";
 import App from "../App/App";
-import HomePage from "../Pages/HomePage";
-import ListedBookPage from "../Pages/ListedBookPage";
-import ReadingListPage from "../Pages/ReadingListPage";
-import Error from "../ErrorPage/Error";
+import HomePage from "../Pages/Home/HomePage";
+import ListedBookPage from "../Pages/BookList/ListedBookPage";
+import ReadingListPage from "../Pages/ReadingList/ReadingListPage";
+import Error from "../Pages/Error/Error";
+import BookDetail from "../Pages/Home/AllBooks/BookDetail/BookDetail";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,11 @@ export const router = createBrowserRouter([
       {
         path: "/read",
         Component: ReadingListPage,
+      },
+      {
+        path: "/book-details/:id",
+        Component: BookDetail,
+        loader: () => fetch("/booksData.json"),
       },
     ],
     errorElement: <Error />,

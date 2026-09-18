@@ -1,4 +1,4 @@
-import BookImage from "../../assets/pngwing 1.png";
+import BookImage from "../../../assets/pngwing 1.png";
 
 const Hero = () => {
   return (
@@ -8,7 +8,7 @@ const Hero = () => {
           <h1 className="text-6xl font-bold fpd leading-20">
             Books to freshen up <br /> your bookshelf
           </h1>
-          <button className="w-48 h-16 text-xl text-white btn btn-success rounded-xl">
+          <button className="w-48 h-16 text-xl btn btn-success rounded-xl">
             <a href="">View The List</a>
           </button>
         </div>

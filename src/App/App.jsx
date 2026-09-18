@@ -1,15 +1,20 @@
 import { Outlet } from "react-router";
-import NavBar from "../Components/Navbar/NavBar";
+import NavBar from "../Navbar/NavBar";
 
 const App = () => {
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="max-w-292.5">
-        <NavBar />
+    <div className="max-w-292.5 mx-auto">
+      <div className="">
+        {/* Constant NavBar */}
+        <nav>
+          <NavBar />
+        </nav>
 
-        <div className="mt-14 ">
+        {/* Changable Outlet section contains Homepage, Book List, Reading List, Error page */}
+
+        <main className="mt-14 ">
           <Outlet />
-        </div>
+        </main>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const NavBar = () => {
   const links = (
@@ -38,41 +38,6 @@ const NavBar = () => {
 
   return (
     <>
-      {/* <div className="flex justify-between mt-8 space-x-44">
-        <div className="nav-start hover:cursor-pointer">
-          <h3 className="text-3xl font-extrabold">
-            <a href="">Book Vibe</a>
-          </h3>
-        </div>
-
-        <ul className="flex space-x-4 nav-Center">
-          <li>
-            <button className="btn btn-success btn-outline ">
-              <a href="">Home</a>
-            </button>
-          </li>
-          <li>
-            <button className="btn">
-              <a href="">Listed Books</a>
-            </button>
-          </li>
-          <li>
-            <button className="btn">
-              <a href="">Pages to Read</a>
-            </button>
-          </li>
-        </ul>
-
-        <div className="flex space-x-4 nav-end">
-          <button className="text-white btn btn-success">
-            <a href="">Sign In</a>
-          </button>
-          <button className="text-white btn btn-info">
-            <a href="">Sign Up</a>
-          </button>
-        </div>
-      </div> */}
-
       <div className="shadow-sm navbar flex justify-between md:space-x-43.25 bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -101,12 +66,13 @@ const NavBar = () => {
               {links}
             </ul>
           </div>
-          <a
-            href=""
+
+          <Link
             className="font-bold max-md:hidden md:text-3xl md:font-extrabold md:w-45"
+            to={"/"}
           >
             Book Vibe
-          </a>
+          </Link>
         </div>
 
         {/* <div></div> */}
