@@ -1,5 +1,4 @@
 import { use } from "react";
-import BooksSectionHeader from "./BookSectionHeader/BooksSectionHeader";
 import BookCard from "./BookCard/BookCard";
 
 const booksDataPromise = fetch("/booksData.json").then((res) => res.json());
@@ -9,7 +8,7 @@ const AllBooks = () => {
   return (
     <>
       {/* Section Header */}
-      <BooksSectionHeader />
+      <h2 className="text-4xl font-bold text-center mt-25 fpd">Books</h2>
 
       {/* All Books */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">

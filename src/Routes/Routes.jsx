@@ -2,9 +2,10 @@ import { createBrowserRouter } from "react-router";
 import App from "../App/App";
 import HomePage from "../Pages/Home/HomePage";
 import ListedBookPage from "../Pages/BookList/ListedBookPage";
-import ReadingListPage from "../Pages/ReadingList/ReadingListPage";
+
 import Error from "../Pages/Error/Error";
 import BookDetail from "../Pages/Home/AllBooks/BookDetail/BookDetail";
+import ReadingListPage from "../Pages/BookList/ReadingList/ReadingListPage";
 
 export const router = createBrowserRouter([
   {
@@ -16,11 +17,11 @@ export const router = createBrowserRouter([
         Component: HomePage,
       },
       {
-        path: "/books",
+        path: "/listed-books",
         Component: ListedBookPage,
       },
       {
-        path: "/read",
+        path: "/read-list",
         Component: ReadingListPage,
       },
       {

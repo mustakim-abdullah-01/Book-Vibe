@@ -1,16 +1,24 @@
+import { useContext } from "react";
 import { useLoaderData, useParams } from "react-router";
+import { bookContext } from "../../../../Context/Context";
 
 const BookDetail = () => {
+  const { handleWishlist, handleReadList } = useContext(bookContext);
+  //
+
   const params = useParams();
+  //
 
   const { id } = params;
+  //
 
   const booksData = useLoaderData();
+  //
 
   const expectedBook = booksData.find((book) => book.bookId === Number(id));
+  //
 
   const {
-    bookId,
     bookName,
     author,
     image,
@@ -22,39 +30,103 @@ const BookDetail = () => {
     publisher,
     yearOfPublishing,
   } = expectedBook;
+  //
 
   return (
-    <div className="flex justify-center items-center">
-      {/* <h1>BookDetail</h1> */}
-      <div className="max-h-177.75 p-18.5  ">
+    <div className="flex items-center justify-between mx-auto mb-12 max-lg:flex-col max-w-11/12 gap-12">
+      {/* Book Image */}
+
+      <div className="max-h-177.75 md:p-18.5 md:bg-base-200 rounded-2xl">
         <img
-          className="max-h-141 shadow-xl rounded-xl"
+          className="shadow-xl max-h-141 rounded-2xl"
           src={image}
           alt={bookName}
         />
       </div>
+
+      {/* Book Information */}
+
       <div>
-        <h2 className="fpd text-[40px] font-bold mb-4">{bookName}</h2>
-        <p className="font-medium text-xl mb-10">By : {author}</p>
-        <p className="font-medium text-xl mb-10">{category}</p>
-        <p className="maw-[549px]">{review}</p>
+        {/* Book details */}
+
+        <div>
+          <h2 className="fpd text-[40px] font-bold mb-4">{bookName}</h2>
+          <p className="text-xl font-medium">By : {author}</p>
+          <div className="divider"></div>
+          <p className="text-xl font-medium bort">{category}</p>
+          <div className="divider"></div>
+          <p className="max-w-137.25">
+            <strong>Review : </strong>
+            <span className="text-[#131313]/70">{review}</span>
+          </p>
+          <p className="flex items-center gap-4 mt-6">
+            <strong>Tag</strong>
+            <span className="flex items-center gap-3">
+              {tags.map((tag, index) => (
+                <span
+                  key={index}
+                  className="text-green-500 bg-green-100 badge badge-soft badge-success"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </span>
+          </p>
+        </div>
+
+        <div className="divider"></div>
+
+        {/* Book Information Section */}
+
+        <div className="flex gap-15">
+          {/* Information Names */}
+
+          <div className="space-y-3 text-[#131313]/70">
+            <p>Number of Pages:</p>
+            <p>Publisher:</p>
+            <p>Year Of Publishing:</p>
+            <p>Rating:</p>
+          </div>
+
+          {/* Information */}
+
+          <div className="space-y-3">
+            <p>
+              <strong>{totalPages}</strong>
+            </p>
+            <p>
+              <strong>{publisher}</strong>
+            </p>
+            <p>
+              <strong>{yearOfPublishing}</strong>
+            </p>
+            <p>
+              <strong>{rating}</strong>
+            </p>
+          </div>
+        </div>
+
+        {/* Buttons */}
+
+        <div className="flex gap-4 mt-8 max-md:flex-col">
+          <button
+            onClick={() => handleReadList(expectedBook)}
+            className="text-lg rounded-lg btn btn-outline h-13"
+          >
+            Mark as Read
+          </button>
+          <button
+            onClick={() => handleWishlist(expectedBook)}
+            className="text-lg rounded-lg btn btn-primary h-13"
+          >
+            Add to Wishlist
+          </button>
+        </div>
       </div>
     </div>
   );
+
+  //
 };
 
 export default BookDetail;
-
-// {
-//   "bookId": 1,
-//   "bookName": "The Great Gatsby",
-//   "author": "F. Scott Fitzgerald",
-//   "image": "https://i.ibb.co.com/khHN7Pk/9780143454212.jpg",
-//   "review": "The Great Gatsby by F. Scott Fitzgerald is a beautifully written classic that explores wealth, love, ambition, and the American Dream. The story follows Nick Carraway as he becomes involved in the glamorous but complicated world of Jay Gatsby, a mysterious millionaire who spends his fortune throwing extravagant parties in the hope of attracting Daisy Buchanan. What I found most interesting about the novel is the contrast between the characters' luxurious lifestyles and the loneliness and disappointment hidden beneath them. Gatsby's determination to recreate his past with Daisy is both romantic and tragic, showing how dangerous it can be to become obsessed with an idealized version of the past. Fitzgerald's prose is elegant and full of symbolism, and the atmosphere of the 1920s is vividly presented. The story is fairly short, but it deals with surprisingly complex themes such as social class, materialism, obsession, and the limits of ambition. Some readers may find the pacing slow, especially in certain descriptive sections, but the emotional impact becomes stronger as the story progresses. Overall, The Great Gatsby is a memorable and bittersweet novel that offers much more than its simple love story suggests.",
-//   "totalPages": 192,
-//   "rating": 4.5,
-//   "category": "Classic",
-//   "tags": ["Fiction", "Romance"],
-//   "publisher": "Scribner",
-//   "yearOfPublishing": 1925
-// }

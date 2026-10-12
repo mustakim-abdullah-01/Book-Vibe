@@ -3,7 +3,7 @@ import NavBar from "../Navbar/NavBar";
 
 const App = () => {
   return (
-    <div className="max-w-292.5 mx-auto">
+    <div className="mx-auto max-w-11/12">
       <div className="">
         {/* Constant NavBar */}
         <nav>

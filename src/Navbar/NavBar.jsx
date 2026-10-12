@@ -15,7 +15,7 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to={"/books"}
+          to={"/listed-books"}
           className={({ isActive }) =>
             `btn rounded-lg ${isActive ? "btn-success" : "btn-ghost"}`
           }
@@ -25,12 +25,12 @@ const NavBar = () => {
       </li>
       <li>
         <NavLink
-          to={"/page-to-read"}
+          to={"/pages-to-read"}
           className={({ isActive }) =>
             `btn rounded-lg ${isActive ? "btn-success" : "btn-ghost"}`
           }
         >
-          Pages to Read
+          Read List
         </NavLink>
       </li>
     </>
@@ -38,7 +38,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className="shadow-sm navbar flex justify-between md:space-x-43.25 bg-base-100">
+      <div className="shadow-sm navbar flex justify-between rounded-b-lg max-w-11/12 mx-auto">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
